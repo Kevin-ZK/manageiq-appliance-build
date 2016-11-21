@@ -3,8 +3,11 @@
 # Please also add to "build time repos" main/repos partial
 
 pushd /etc/yum.repos.d/
-  wget https://copr.fedorainfracloud.org/coprs/manageiq/ManageIQ/repo/epel-7/manageiq-ManageIQ-epel-7.repo
-  wget https://copr.fedorainfracloud.org/coprs/ncarboni/pglogical-SCL/repo/epel-7/ncarboni-pglogical-SCL-epel-7.repo
+  curl -sSLko /etc/yum.repos.d/centos.repo http://192.168.20.170/repofile/centos-ustc.repo
+  curl -sSLko /etc/yum.repos.d/ncarboni-pglogical-SCL-epel-7.repo http://192.168.20.170/repofile/ncarboni-pglogical-SCL-epel-7.repo
+  curl -sSLko /etc/yum.repos.d/manageiq-ManageIQ-epel-7.repo http://192.168.20.170/repofile/ncarboni-pglogical-SCL-epel-7.repo
+  curl -sSLko /etc/yum.repos.d/epel.repo http://192.168.20.170/repofile/epel.repo
+  curl -sSLko /etc/yum.repos.d/centos-sclo-rh.repo http://192.168.20.170/repofile/centos-sclo-rh.repo
 popd
 
 <% if @target == "gce" %>
