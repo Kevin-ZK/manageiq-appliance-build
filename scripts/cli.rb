@@ -8,9 +8,10 @@ module Build
     ALLOWED_TYPES = %w(nightly release test)
     DEFAULT_TYPE  = "nightly"
     DEFAULT_REF   = "master"
-    MANAGEIQ_URL  = "https://github.com/ManageIQ/manageiq.git"
+    VANEQ_REF     = "darga-vaneq"
+    MANAGEIQ_URL  = "https://github.com/VaneCloud/vaneq.git"
     APPLIANCE_URL = "https://github.com/ManageIQ/manageiq-appliance.git"
-    BUILD_URL     = "https://github.com/ManageIQ/manageiq-appliance-build.git"
+    BUILD_URL     = "https://github.com/Kevin-ZK/manageiq-appliance-build.git"
     SUI_URL       = "https://github.com/ManageIQ/manageiq-ui-service.git"
 
     def parse(args = ARGV)
@@ -36,7 +37,7 @@ module Build
         opt :copy_dir,      dir_desc,       :type => :string,  :short => "d", :default => DEFAULT_REF
         opt :fileshare,     share_desc,     :type => :boolean, :short => "f", :default => true
         opt :local,         local_desc,     :type => :boolean, :short => "l", :default => false
-        opt :manageiq_ref,  git_ref_desc,   :type => :string,  :short => "m", :default => DEFAULT_REF
+        opt :manageiq_ref,  git_ref_desc,   :type => :string,  :short => "m", :default => VANEQ_REF
         opt :manageiq_url,  manageiq_desc,  :type => :string,  :short => "M", :default => MANAGEIQ_URL
         opt :only,          only_desc,      :type => :strings, :short => "o", :default => Target.default_types
         opt :sui_ref,       git_ref_desc,   :type => :string,  :short => "s", :default => DEFAULT_REF
