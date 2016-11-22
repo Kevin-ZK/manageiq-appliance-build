@@ -9,10 +9,10 @@ module Build
     DEFAULT_TYPE  = "nightly"
     DEFAULT_REF   = "master"
     VANEQ_REF     = "darga-vaneq"
-    MANAGEIQ_URL  = "http://gitlab.vanecloud.com:8077/anyisalin/vaneq.git"
-    APPLIANCE_URL = "http://gitlab.vanecloud.com:8077/anyisalin/manageiq-appliance.git"
+    MANAGEIQ_URL  = "http://gitlab.vanecloud.com/anyisalin/vaneq.git"
+    APPLIANCE_URL = "http://gitlab.vanecloud.com/anyisalin/manageiq-appliance.git"
     BUILD_URL     = "https://github.com/Kevin-ZK/manageiq-appliance-build.git"
-    SUI_URL       = "http://gitlab.vanecloud.com:8077/anyisalin/manageiq-ui-service.git"
+    SUI_URL       = "http://gitlab.vanecloud.com/anyisalin/manageiq-ui-service.git"
 
     def parse(args = ARGV)
       git_ref_desc   = "provide a git reference such as a branch or tag, non \"#{DEFAULT_REF}\" is required for 'release' type"
