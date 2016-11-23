@@ -11,7 +11,12 @@ firewall-offline-cmd --set-default-zone=manageiq
 ###
 # Allow HTTP, HTTPS, SSH and postgresql in the manageiq firewall zone
 ###
-firewall-offline-cmd --zone=manageiq --add-service=http
-firewall-offline-cmd --zone=manageiq --add-service=https
-firewall-offline-cmd --zone=manageiq --add-service=ssh
-firewall-offline-cmd --zone=manageiq --add-service=postgresql
+# firewall-offline-cmd --zone=manageiq --add-service=http
+# firewall-offline-cmd --zone=manageiq --add-service=https
+# firewall-offline-cmd --zone=manageiq --add-service=ssh
+# firewall-offline-cmd --zone=manageiq --add-service=postgresql
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+
+#disable selinux
+sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux

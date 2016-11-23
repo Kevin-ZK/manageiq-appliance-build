@@ -18,7 +18,7 @@ rootpw  --iscrypted $1$DZprqvCu$mhqFBjfLTH/PVvZIompVP/
 
 authconfig --enableshadow --passalgo=sha512
 selinux --enforcing
-timezone --utc America/New_York
+timezone --utc Asia/Shanghai
 
 device mptbase
 device mptscsih
@@ -32,7 +32,7 @@ reboot
 
 %packages
 @base --nodefaults
-@server-policy --nodefaults
+# @server-policy --nodefaults
 @development tools
 
 <%= render_partial "packages/includes" %>
