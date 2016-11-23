@@ -1,8 +1,14 @@
-curl -L https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz | tar xvfzC - /tmp
+# curl -L https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz | tar xvfzC - /tmp
 
-pushd /tmp/ruby-install*/
+# pushd /tmp/ruby-install*/
+# make install
+# popd
+
+wget -O ruby-install.tar.gz http://192.168.20.170/github/v0.6.0.tar.gz
+tar -xzvf ruby-install.tar.gz
+rm -f ruby-install.tar.gz
+cd ruby-install*/
 make install
-popd
 
 # The ruby-install will result in about 350MiB of files in /usr/local/src.
 # These do not need to be in the image, so put them on a tmpfs.
@@ -13,7 +19,8 @@ mount -t tmpfs tmpfs /usr/local/src
 # Once the --update option is available, we could ask
 # ruby-install to "learn" what new rubies are available
 # See: https://github.com/postmodern/ruby-install/issues/175
-/usr/local/bin/ruby-install ruby 2.3.1 -- --disable-install-doc --enable-shared
+# /usr/local/bin/ruby-install ruby 2.3.1 -- --disable-install-doc --enable-shared
+/usr/local/bin/ruby-install -M http://192.168.20.170/ftp.ruby-lang.org/pub/ruby ruby 2.3.1 -- --disable-install-doc --enable-shared
 
 # Free up tmpfs memory.
 umount /usr/local/src
